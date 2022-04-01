@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">RecyclerView</string>
+    <string name="edtProductNumber">Insert Product Number</string>
+    <string name="edtProductTitle">Insert Product Title</string>
+    <string name="edtProductStock">Insert Product Stock</string>
+    <string name="edtProductDescription">Insert Product Description</string>
+    <string name="btnSave">Save</string>
+    <string name="txtHeader">Add New Product</string>
+</resources>
