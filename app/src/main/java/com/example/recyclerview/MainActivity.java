@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -16,7 +17,6 @@ public class MainActivity extends AppCompatActivity {
 
     private Button btnAddProduct;
     private ArrayList<Products> productsList;
-//    private AddProduct addProduct;
     private ProductsAdapter productsAdapter;
     private RecyclerView recyclerProducts;
     private String strProductTitle, strProductDescription;
@@ -27,11 +27,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        init();
+
 
         productsList = new ArrayList<>();
 
-        btnAddProduct.setOnClickListener(new btnAddProductListner());
+
 
         Intent intent = getIntent();
         Bundle resultBundle = intent.getExtras();
@@ -44,19 +44,25 @@ public class MainActivity extends AppCompatActivity {
 
             newProductNumber = Integer.parseInt(resultBundle.getString(Constants.KEY_PRODUCTNUMBER));
             strProductTitle = resultBundle.getString(Constants.KEY_PRODUCTTITLE);
-            newProductNumber = Integer.parseInt(resultBundle.getString(Constants.KEY_PRODUCTSTOCK));
+            newProductStock = Integer.parseInt(resultBundle.getString(Constants.KEY_PRODUCTSTOCK));
             strProductDescription = resultBundle.getString(Constants.KEY_PRODUCTDESCRIPTION);
 
             productsList.add(new Products(newProductNumber, strProductTitle, newProductStock, strProductDescription));
         }
+        init();
+
+        btnAddProduct.setOnClickListener(new btnAddProductListner());
 
     }
 
     private class btnAddProductListner implements View.OnClickListener{
         @Override
         public void onClick(View view) {
-            Intent intent = new Intent(MainActivity.this, AddProduct.class);
-            startActivityForResult(intent,1);
+            Log.e("btn", "Button is Clicked");
+
+            Intent startActivity = new Intent(MainActivity.this, AddProduct.class);
+            startActivity(startActivity);
+
         }
     }
 
@@ -67,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         productsList.add(new Products(01,"Cabinate",100,"Microsoft Cabinate"));
         productsList.add(new Products(02,"Keyboard",100,"Logitec Keyboard"));
         productsList.add(new Products(03,"Mouse",100,"Logitec Mouse"));
-        productsList.add(new Products(04,"PenTab",100,"iBall Cabinate"));
+        productsList.add(new Products(04,"PenTab",100,"iBall Pentab"));
 
 
         btnAddProduct = findViewById(R.id.btnAddProduct);

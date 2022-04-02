@@ -23,10 +23,10 @@ public class AddProduct extends AppCompatActivity {
         init();
 
 
-        btnSave.setOnClickListener(new btnSaveListner());
+        btnSave.setOnClickListener(new btnSaveListener());
     }
 
-    private class btnSaveListner implements View.OnClickListener{
+    private class btnSaveListener implements View.OnClickListener{
         @Override
         public void onClick(View view) {
 
@@ -46,7 +46,7 @@ public class AddProduct extends AppCompatActivity {
             else {
                 Intent intent = new Intent(AddProduct.this, MainActivity.class);
                 intent.putExtra(Constants.KEY_PRODUCTNUMBER, edtProductNumber.getText().toString());
-                intent.putExtra(Constants.KEY_PRODUCTTITLE, edtProductNumber.getText().toString());
+                intent.putExtra(Constants.KEY_PRODUCTTITLE, edtProductTitle.getText().toString());
                 intent.putExtra(Constants.KEY_PRODUCTSTOCK, edtProductStock.getText().toString());
                 intent.putExtra(Constants.KEY_PRODUCTDESCRIPTION, edtProductDescription.getText().toString());
                 startActivity(intent);
