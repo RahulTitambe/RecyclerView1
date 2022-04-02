@@ -4,8 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/edittextdesign.xml" value="0.181" />
+        <entry key="app/src/main/res/drawable/products_container.xml" value="0.181" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.14583333333333334" />
         <entry key="app/src/main/res/layout/add_product.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/products_container.xml" value="0.14583333333333334" />
       </map>
     </option>
   </component>

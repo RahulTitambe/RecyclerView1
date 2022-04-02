@@ -1,6 +1,6 @@
 package com.example.recyclerview;
 
-public class products {
+public class Products {
     int productNumer;
     String productTitle;
     int productStock;
@@ -38,7 +38,7 @@ public class products {
         this.productDescription = productDescription;
     }
 
-    public products(int productNumer, String productTitle, int productStock, String productDescription) {
+    public Products(int productNumer, String productTitle, int productStock, String productDescription) {
         this.productNumer = productNumer;
         this.productTitle = productTitle;
         this.productStock = productStock;

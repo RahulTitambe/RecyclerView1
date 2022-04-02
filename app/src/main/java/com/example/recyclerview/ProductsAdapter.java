@@ -1,8 +1,8 @@
 package com.example.recyclerview;
 
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,19 +12,21 @@ import java.util.ArrayList;
 
 public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ProductHolder> {
 
-    private ArrayList<String> productsList;
+    private ArrayList<Products> productsList;
 
-    public ProductsAdapter (ArrayList<String> products){
+    public ProductsAdapter (ArrayList<Products> products){
         this.productsList = products;
     }
 
     class ProductHolder extends RecyclerView.ViewHolder{
 
-        TextView productTitle;
+        public TextView txtProductNumber, txtProductTitle;
 
         public  ProductHolder(View itemView){
             super(itemView);
-            this.productTitle = (TextView) itemView;
+
+            txtProductNumber = itemView.findViewById(R.id.txtProductNumber);
+            txtProductTitle = itemView.findViewById(R.id.txtProductTitle);
         }
     }
 
@@ -45,23 +47,27 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
 //        linearLayout.setLayoutParams(new ViewGroup.LayoutParams(
 //                ViewGroup.LayoutParams.MATCH_PARENT,
 //                ViewGroup.LayoutParams.WRAP_CONTENT));
+//
+//        TextView textView1 = new TextView(parent.getContext());
+//        textView1.setLayoutParams(
+//                new ViewGroup.LayoutParams(
+//                        ViewGroup.LayoutParams.WRAP_CONTENT,
+//                        ViewGroup.LayoutParams.WRAP_CONTENT
+//                ));
+//        textView1.setTextSize(20);
+//        textView1.setPadding(20,5,10,5);
 
-        TextView textView1 = new TextView(parent.getContext());
-        textView1.setLayoutParams(
-                new ViewGroup.LayoutParams(
-                        ViewGroup.LayoutParams.WRAP_CONTENT,
-                        ViewGroup.LayoutParams.WRAP_CONTENT
-                ));
-        textView1.setTextSize(15);
-//        textView1.setPadding(10,5,10,5);
-//        textView1.setTextColor(000000);
+        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+        View view = layoutInflater.inflate(R.layout.products_container, null);
 
-        return new ProductHolder(textView1);
+        return new ProductHolder(view);
 
     }
 
     @Override
     public void onBindViewHolder(@NonNull ProductHolder holder, int position) {
-        holder.productTitle.setText(productsList.get(position));
+        Products products = productsList.get(position);
+        holder.txtProductNumber.setText(products.getProductNumer());
+        holder.txtProductTitle.setText(products.getProductTitle());
     }
 }

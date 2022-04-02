@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private Button btnAddProduct;
-    private ArrayList<String> productsList;
+    private ArrayList<Products> productsList;
 //    private AddProduct addProduct;
     private ProductsAdapter productsAdapter;
     private RecyclerView recyclerProducts;
@@ -41,16 +41,19 @@ public class MainActivity extends AppCompatActivity {
     private void init(){
 
         productsList = new ArrayList<>();
-        for(int i=0; i<=10; i++){
-            productsList.add("New Product--" + i);
-        }
+
+        productsList.add(new Products(01,"Cabinate",100,"Microsoft Cabinate"));
+        productsList.add(new Products(02,"Keyboard",100,"Logitec Keyboard"));
+        productsList.add(new Products(03,"Mouse",100,"Logitec Mouse"));
+        productsList.add(new Products(04,"PenTab",100,"iBall Cabinate"));
+
 
         btnAddProduct = findViewById(R.id.btnAddProduct);
         recyclerProducts = findViewById(R.id.recyclerProducts);
         recyclerProducts.setLayoutManager(
                 new LinearLayoutManager(
                 this,
-                RecyclerView.HORIZONTAL,
+                RecyclerView.VERTICAL,
                 false
         ));
 
