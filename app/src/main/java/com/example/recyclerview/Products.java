@@ -1,17 +1,19 @@
 package com.example.recyclerview;
 
-public class Products {
-    int productNumer;
+import java.io.Serializable;
+
+public class Products implements Serializable {
+    int productNumber;
     String productTitle;
     int productStock;
     String productDescription;
 
-    public int getProductNumer() {
-        return productNumer;
+    public int getProductNumber() {
+        return productNumber;
     }
 
-    public void setProductNumer(int productNumer) {
-        this.productNumer = productNumer;
+    public void setProductNumber(int productNumber) {
+        this.productNumber = productNumber;
     }
 
     public String getProductTitle() {
@@ -39,7 +41,7 @@ public class Products {
     }
 
     public Products(int productNumer, String productTitle, int productStock, String productDescription) {
-        this.productNumer = productNumer;
+        this.productNumber = productNumer;
         this.productTitle = productTitle;
         this.productStock = productStock;
         this.productDescription = productDescription;

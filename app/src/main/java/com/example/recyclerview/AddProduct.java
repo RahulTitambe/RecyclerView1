@@ -22,6 +22,7 @@ public class AddProduct extends AppCompatActivity {
 
         init();
 
+
         btnSave.setOnClickListener(new btnSaveListner());
     }
 
@@ -44,6 +45,10 @@ public class AddProduct extends AppCompatActivity {
 
             else {
                 Intent intent = new Intent(AddProduct.this, MainActivity.class);
+                intent.putExtra(Constants.KEY_PRODUCTNUMBER, edtProductNumber.getText().toString());
+                intent.putExtra(Constants.KEY_PRODUCTTITLE, edtProductNumber.getText().toString());
+                intent.putExtra(Constants.KEY_PRODUCTSTOCK, edtProductStock.getText().toString());
+                intent.putExtra(Constants.KEY_PRODUCTDESCRIPTION, edtProductDescription.getText().toString());
                 startActivity(intent);
                 finish();
             }

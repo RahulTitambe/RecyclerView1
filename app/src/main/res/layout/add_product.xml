@@ -34,7 +34,8 @@
         android:layout_margin="15dp"
         android:padding="7dp"
         android:background="@drawable/edittextdesign"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:inputType="number"/>
 
     <EditText
         android:id="@+id/edtTitle"
@@ -62,7 +63,8 @@
         android:layout_margin="15dp"
         android:padding="7dp"
         android:background="@drawable/edittextdesign"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:inputType="number"/>
 
     <EditText
         android:id="@+id/edtDescription"

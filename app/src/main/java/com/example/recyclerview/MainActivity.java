@@ -1,5 +1,6 @@
 package com.example.recyclerview;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
 //    private AddProduct addProduct;
     private ProductsAdapter productsAdapter;
     private RecyclerView recyclerProducts;
+    private String strProductTitle, strProductDescription;
+    private int newProductNumber, newProductStock;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,15 +29,34 @@ public class MainActivity extends AppCompatActivity {
 
         init();
 
+        productsList = new ArrayList<>();
+
         btnAddProduct.setOnClickListener(new btnAddProductListner());
+
+        Intent intent = getIntent();
+        Bundle resultBundle = intent.getExtras();
+
+        if (resultBundle == null){
+            return;
+        }
+
+        else {
+
+            newProductNumber = Integer.parseInt(resultBundle.getString(Constants.KEY_PRODUCTNUMBER));
+            strProductTitle = resultBundle.getString(Constants.KEY_PRODUCTTITLE);
+            newProductNumber = Integer.parseInt(resultBundle.getString(Constants.KEY_PRODUCTSTOCK));
+            strProductDescription = resultBundle.getString(Constants.KEY_PRODUCTDESCRIPTION);
+
+            productsList.add(new Products(newProductNumber, strProductTitle, newProductStock, strProductDescription));
+        }
+
     }
 
     private class btnAddProductListner implements View.OnClickListener{
         @Override
         public void onClick(View view) {
             Intent intent = new Intent(MainActivity.this, AddProduct.class);
-            startActivity(intent);
-            finish();
+            startActivityForResult(intent,1);
         }
     }
 
